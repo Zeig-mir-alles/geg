@@ -6,10 +6,6 @@
 `define OPCODE_MI_TYPE 7'b0000011
 `define OPCODE_S_TYPE 7'b0100011
 `define OPCODE_B_TYPE 7'b1100011
-`define OPCODE_LUI_TYPE 7'b0110111
-`define OPCODE_AUIPC_TYPE 7'b0010111
-`define OPCODE_JAL_TYPE 7'b1101111
-`define OPCODE_JALR_TYPE 7'b1100111
 
 typedef struct packed {
 	logic [6:0] opcode;

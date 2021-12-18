@@ -14,7 +14,7 @@ end
 instruction_t instruction;
 
 fetch fetcher(clk, instruction);
-decode decoder(instruction);
+decode decoder(clk, instruction);
 
 always @(posedge clk) begin
 	$display("hello I am here");
