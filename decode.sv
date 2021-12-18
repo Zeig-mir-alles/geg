@@ -8,8 +8,6 @@ module decode(clk, instruction);
 	operation_t operation;
 	execute execute(clk, operation);
 
-
-
 	task rtype_instruction(input instr_t instr);
 		begin
 			$display("type r");
@@ -17,8 +15,18 @@ module decode(clk, instruction);
 				3'b000: begin
 					case(instr.func7)
 						7'b000000: begin // add
+							operation.operation_type <= `OPERATION_ALU;
+							operation.operation_function <= `ALU_OPERATION_ADD;
+							operation.rs1 = instr.rs1;
+							operation.rs2 = instr.rs2;
+							operation.dest = instr.rd;
 						end
 						7'b010000: begin // sub
+							operation.operation_type <= `OPERATION_ALU;
+							operation.operation_function <= `ALU_OPERATION_SUB;
+							operation.rs1 = instr.rs1;
+							operation.rs2 = instr.rs2;
+							operation.dest = instr.rd;
 						end
 						default begin
 							$display("unkwon function");
@@ -120,8 +128,8 @@ module decode(clk, instruction);
 	endtask
 
 	always @(posedge clk) begin
-		case(instruction[6:0])
-			`OPCODE_R_TYPE:	rtype_instruction(instruction.instr);
+		case(instruction.instr.opcode)
+			`OPCODE_R_TYPE: rtype_instruction(instruction.instr);
 			`OPCODE_MI_TYPE: itype_instruction(instruction.insti);
 			`OPCODE_I_TYPE: itype_instruction(instruction.insti);
 			`OPCODE_B_TYPE: btype_instruction(instruction.instu);
