@@ -1,4 +1,5 @@
 `include "decode.svh"
+`include "alu.svh"
 
 module main;
 

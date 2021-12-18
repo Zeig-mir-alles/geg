@@ -1,0 +1,12 @@
+`ifndef ALU_H_
+`define ALU_H_
+
+`define ALU_OPERATION_ADD 0
+`define ALU_OPERATION_SUB 1
+`define ALU_OPERATION_MUL 2
+`define ALU_OPERATION_OR 3
+`define ALU_OPERATION_NOT 4
+`define ALU_OPERATION_XOR 5
+`define ALU_OPERATION_AND 6
+
+`endif

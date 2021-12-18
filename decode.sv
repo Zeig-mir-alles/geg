@@ -32,6 +32,9 @@ module decode(instruction);
 			`OPCODE_JALR_TYPE: begin
 				$display("type jalr");
 			end
+			default: begin
+				$display("unkown opcode");
+			end
 		endcase
 	end
 endmodule
